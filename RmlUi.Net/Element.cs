@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace ChickenWithLips.RmlUi;
 
 public interface Element
@@ -11,7 +13,7 @@ public abstract class Element<T> : RmlBase<T>, Element
 {
     #region Properties
 
-    public string TagName => Native.Element.GetTagName(NativePtr);
+    public string TagName => Marshal.PtrToStringAuto(Native.Element.GetTagName(NativePtr));
 
     #endregion
 

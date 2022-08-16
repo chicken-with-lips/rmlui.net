@@ -26,6 +26,7 @@ add_library(${PROJECT_NAME} SHARED
     src/Context.cpp
     src/Element.cpp
     src/ElementDocument.cpp
+    src/Event.cpp
     src/EventListener.h
     src/RenderInterface.cpp
     src/Rml.cpp

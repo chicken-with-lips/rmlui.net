@@ -1,0 +1,36 @@
+﻿namespace ChickenWithLips.RmlUi;
+
+public static class Rml
+{
+    public static void Initialise()
+    {
+        Native.Rml.Initialise();
+    }
+
+    public static void SetSystemInterface(SystemInterface systemInterface)
+    {
+        Native.Rml.SetSystemInterface(systemInterface.NativePtr);
+    }
+
+    public static void SetRenderInterface(RenderInterface renderInterface)
+    {
+        Native.Rml.SetRenderInterface(renderInterface.NativePtr);
+    }
+
+    /// <summary>
+    /// Adds a new font face to the font engine. The face's family, style and weight will be determined from the face itself.
+    /// </summary>
+    /// <param name="fileName">The file to load the face from.</param>
+    /// <param name="fallbackFace">True to use this font face for unknown characters in other font faces.</param>
+    /// <param name="weight">The weight to load when the font face contains multiple weights, otherwise the weight to register the font as. By default it loads all found font weights.</param>
+    /// <returns>True if the face was loaded successfully, false otherwise.</returns>
+    public static bool LoadFontFace(string fileName, bool fallbackFace = false, FontWeight weight = FontWeight.Auto)
+    {
+        return Native.Rml.LoadFontFace(fileName, fallbackFace, weight);
+    }
+
+    public static Context? CreateContext(string name, Vector2i dimensions, RenderInterface? renderInterface = null)
+    {
+        return Context.Create(name, dimensions, renderInterface);
+    }
+}

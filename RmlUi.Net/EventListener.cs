@@ -129,7 +129,6 @@ public abstract class EventListener : RmlBase<EventListener>
 
     public virtual void OnAttach(Element element)
     {
-        Console.WriteLine("OnAttach: " + element.GetType().Name);
     }
 
     public virtual void OnDetach(Element element)

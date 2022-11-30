@@ -1,5 +1,4 @@
 
-#include <iostream>
 #include "RmlUi/Core/Element.h"
 #include "Util.h"
 
@@ -22,7 +21,7 @@ rml_Element_RemoveEventListener(Rml::Element *element, const char *event, Rml::E
 extern "C" const char *rml_Element_GetElementByID(Rml::Element *element, const char *id, Rml::Element **foundElement) {
     *foundElement = element->GetElementById(id);
 
-    if (foundElement) {
+    if (*foundElement) {
         return Util::GetElementMarshalId(*foundElement);
     }
 
@@ -33,4 +32,20 @@ extern "C" const char *rml_Element_GetOwnerDocument(Rml::Element *element, Rml::
     *foundElement = element->GetOwnerDocument();
 
     return Util::GetElementMarshalId(*foundElement);
+}
+
+extern "C" void rml_Element_SetInnerRml(Rml::Element *element, const char* rml) {
+    element->SetInnerRML(rml);
+}
+
+extern "C" void rml_Element_Focus(Rml::Element *element) {
+    element->Focus();
+}
+
+extern "C" void rml_Element_Blur(Rml::Element *element) {
+    element->Blur();
+}
+
+extern "C" void rml_Element_Click(Rml::Element *element) {
+    element->Click();
 }

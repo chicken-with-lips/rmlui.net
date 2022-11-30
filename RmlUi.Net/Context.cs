@@ -1,10 +1,16 @@
 using System.Numerics;
+using System.Runtime.InteropServices;
 
 namespace ChickenWithLips.RmlUi;
 
 public class Context : RmlBase<Context>
 {
     #region Properties
+
+    /// <summary>
+    /// Returns the name of the context.
+    /// </summary>
+    public string Name => Marshal.PtrToStringAuto(Native.Context.GetName(NativePtr));
 
     /// <summary>
     /// Returns a hint on whether the mouse is currently interacting with any elements in this context.

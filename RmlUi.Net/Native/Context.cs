@@ -39,4 +39,7 @@ internal static class Context
 
     [DllImport("RmlUi.Native", EntryPoint = "rml_Context_RemoveEventListener")]
     public static extern void RemoveEventListener(IntPtr context, string name, IntPtr eventListener, bool inCapturePhase);
+
+    [DllImport("RmlUi.Native", EntryPoint = "rml_Context_GetName")]
+    public static extern IntPtr GetName(IntPtr context);
 }

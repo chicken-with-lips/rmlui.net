@@ -5,7 +5,16 @@ namespace ChickenWithLips.RmlUi;
 public interface Element
 {
     public IntPtr NativePtr { get; }
+
+    /// <summary>
+    /// Gets the name of the element.
+    /// </summary>
     public string TagName { get; }
+
+    /// <summary>
+    /// Gets the document this element belongs to.
+    /// </summary>
+    public ElementDocument OwnerDocument { get; }
 
     /// <summary>
     /// Adds an event listener to this element.
@@ -29,6 +38,28 @@ public interface Element
     /// <param name="id">ID of the the child element</param>
     /// <returns>The child of this element with the given ID, or null if no such child exists.</returns>
     public Element? GetElementById(string id);
+
+    /// <summary>
+    /// Sets the markup and content of the element. All existing children will be replaced.
+    /// </summary>
+    /// <param name="rml">The new content of the element.</param>
+    public void SetInnerRml(string rml);
+
+    /// <summary>
+    /// Gives focus to the current element.
+    /// </summary>
+    /// <returns>True if the change focus request was successful.</returns>
+    public bool Focus();
+
+    /// <summary>
+    /// Removes focus from from this element.
+    /// </summary>
+    public void Blur();
+
+    /// <summary>
+    /// Fakes a mouse click on this element.
+    /// </summary>
+    public void Click();
 }
 
 public abstract class Element<T> : RmlBase<T>, Element
@@ -102,6 +133,40 @@ public abstract class Element<T> : RmlBase<T>, Element
         }
 
         return Util.GetOrThrowElementByTypeName(elementPtr, elementType);
+    }
+
+    /// <summary>
+    /// Sets the markup and content of the element. All existing children will be replaced.
+    /// </summary>
+    /// <param name="rml">The new content of the element.</param>
+    public void SetInnerRml(string rml)
+    {
+        Native.Element.SetInnerRml(NativePtr, rml);
+    }
+
+    /// <summary>
+    /// Gives focus to the current element.
+    /// </summary>
+    /// <returns>True if the change focus request was successful.</returns>
+    public bool Focus()
+    {
+        return Native.Element.Focus(NativePtr);
+    }
+
+    /// <summary>
+    /// Removes focus from from this element.
+    /// </summary>
+    public void Blur()
+    {
+        Native.Element.Blur(NativePtr);
+    }
+
+    /// <summary>
+    /// Fakes a mouse click on this element.
+    /// </summary>
+    public void Click()
+    {
+        Native.Element.Click(NativePtr);
     }
 
     #endregion

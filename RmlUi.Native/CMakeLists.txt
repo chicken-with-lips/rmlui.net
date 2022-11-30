@@ -43,4 +43,4 @@ target_link_libraries(${PROJECT_NAME}
     RmlCore
 )
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> /home/jolly_samurai/Projects/chicken-with-lips/duck/Build/Debug/net6.0/${PROJECT_NAME}.so)
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> /media/jolly_samurai/Data/Projects/chicken-with-lips/duck/Build/Debug/net6.0/${PROJECT_NAME}.so)

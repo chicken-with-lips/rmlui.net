@@ -53,3 +53,8 @@ rml_Context_RemoveEventListener(Rml::Context *context, const char *event, Rml::E
                                 bool inCapturePhase) {
     context->RemoveEventListener(event, eventListener, inCapturePhase);
 }
+
+extern "C" const char*
+rml_Context_GetName(Rml::Context *context) {
+    return context->GetName().c_str();
+}

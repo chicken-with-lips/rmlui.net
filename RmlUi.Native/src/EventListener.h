@@ -29,10 +29,10 @@ public:
     }
 
     void OnAttach(Rml::Element *element) override {
-        (*m_onAttachEvent)(element, Util::GetElementMarshalId(element));
+        (*m_onAttachEvent)(element, rmlui_type_name(*element));
     }
 
     void OnDetach(Rml::Element *element) override {
-        (*m_onDetachEvent)(element, Util::GetElementMarshalId(element));
+        (*m_onDetachEvent)(element, rmlui_type_name(*element));
     }
 };

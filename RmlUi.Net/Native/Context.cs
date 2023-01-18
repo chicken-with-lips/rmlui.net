@@ -7,6 +7,9 @@ internal static class Context
     [DllImport("RmlUi.Native", EntryPoint = "rml_Context_New")]
     public static extern IntPtr Create(string name, Vector2i dimensions, IntPtr renderInterface);
 
+    [DllImport("RmlUi.Native", EntryPoint = "rml_Context_Delete")]
+    public static extern void Delete(IntPtr context);
+
     [DllImport("RmlUi.Native", EntryPoint = "rml_Context_Update")]
     public static extern void Update(IntPtr context);
 

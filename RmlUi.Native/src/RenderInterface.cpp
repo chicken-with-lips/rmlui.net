@@ -1,6 +1,6 @@
-#include <iostream>
+#include "RmlNative.h"
 #include "RmlUi/Core/RenderInterface.h"
-
+#include <iostream>
 
 typedef void(*onRenderGeometry)(Rml::Vertex *vertices,
                                 int num_vertices,
@@ -92,7 +92,7 @@ public:
     }
 };
 
-extern "C" void *rml_RenderInterface_New(::onRenderGeometry onRenderGeometry, ::onGenerateTexture onGenerateTexture,
+RMLUI_CAPI void *rml_RenderInterface_New(::onRenderGeometry onRenderGeometry, ::onGenerateTexture onGenerateTexture,
                                          ::onLoadTexture onLoadTexture,
                                          ::onReleaseTexture onReleaseTexture) {
     return new RenderInterface(onRenderGeometry, onGenerateTexture, onLoadTexture, onReleaseTexture);

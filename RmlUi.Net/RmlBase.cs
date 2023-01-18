@@ -63,7 +63,6 @@ public abstract class RmlBase<T> : RmlBase, IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        return;
         if (IsDisposed) {
             return;
         }

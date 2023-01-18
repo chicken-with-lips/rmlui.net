@@ -19,7 +19,7 @@ public class Event : RmlBase<Event>
     /// </summary>
     public Element CurrentElement {
         get {
-            var elementType = Marshal.PtrToStringAuto(
+            var elementType = Marshal.PtrToStringAnsi(
                 Native.Event.GetCurrentElement(NativePtr, out var elementPtr)
             );
 
@@ -32,7 +32,7 @@ public class Event : RmlBase<Event>
     /// </summary>
     public Element TargetElement {
         get {
-            var elementType = Marshal.PtrToStringAuto(
+            var elementType = Marshal.PtrToStringAnsi(
                 Native.Event.GetTargetElement(NativePtr, out var elementPtr)
             );
 

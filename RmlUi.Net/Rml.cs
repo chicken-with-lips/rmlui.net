@@ -7,6 +7,11 @@ public static class Rml
         Native.Rml.Initialise();
     }
 
+    public static void Shutdown()
+    {
+        Native.Rml.Shutdown();
+    }
+
     public static void SetSystemInterface(SystemInterface systemInterface)
     {
         Native.Rml.SetSystemInterface(systemInterface.NativePtr);
@@ -32,5 +37,10 @@ public static class Rml
     public static Context? CreateContext(string name, Vector2i dimensions, RenderInterface? renderInterface = null)
     {
         return Context.Create(name, dimensions, renderInterface);
+    }
+
+    public static bool RemoveContext(string name)
+    {
+        return Native.Rml.RemoveContext(name);
     }
 }

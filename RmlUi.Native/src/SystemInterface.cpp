@@ -1,5 +1,6 @@
-#include <iostream>
+#include "RmlNative.h"
 #include "RmlUi/Core/SystemInterface.h"
+#include <iostream>
 
 typedef double(*onGetElapsedTime)();
 
@@ -57,7 +58,7 @@ public:
     }
 };
 
-extern "C" void *rml_SystemInterface_New(::onGetElapsedTime onGetElapsedTime, ::onTranslateString onTranslateString,
+RMLUI_CAPI void *rml_SystemInterface_New(::onGetElapsedTime onGetElapsedTime, ::onTranslateString onTranslateString,
                                          ::onLogMessage onLogMessage) {
     return new SystemInterface(onGetElapsedTime, onTranslateString, onLogMessage);
 }

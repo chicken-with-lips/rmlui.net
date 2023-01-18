@@ -17,37 +17,37 @@ internal static class Util
 
     public static Element? GetElementByTypeName(IntPtr elementPtr, string elementType)
     {
-        if (elementType == "ElementDocument") {
+        if (elementType == "class Rml::ElementDocument") {
             return ElementDocument.Create(elementPtr);
-        } else if (elementType == "ElementDataGrid") {
+        } else if (elementType == "class Rml::ElementDataGrid") {
             return ElementDataGrid.Create(elementPtr);
-        } else if (elementType == "ElementDataGridCell") {
+        } else if (elementType == "class Rml::ElementDataGridCell") {
             return ElementDataGridCell.Create(elementPtr);
-        } else if (elementType == "ElementDataGridExpandButton") {
+        } else if (elementType == "class Rml::ElementDataGridExpandButton") {
             return ElementDataGridExpandButton.Create(elementPtr);
-        } else if (elementType == "ElementDataGridRow") {
+        } else if (elementType == "class Rml::ElementDataGridRow") {
             return ElementDataGridRow.Create(elementPtr);
-        } else if (elementType == "ElementDocument") {
+        } else if (elementType == "class Rml::ElementDocument") {
             return ElementDocument.Create(elementPtr);
-        } else if (elementType == "ElementForm") {
+        } else if (elementType == "class Rml::ElementForm") {
             return ElementForm.Create(elementPtr);
-        } else if (elementType == "ElementFormControl") {
+        } else if (elementType == "class Rml::ElementFormControl") {
             return ElementFormControl.Create(elementPtr);
-        } else if (elementType == "ElementFormControlDataSelect") {
+        } else if (elementType == "class Rml::ElementFormControlDataSelect") {
             return ElementFormControlDataSelect.Create(elementPtr);
-        } else if (elementType == "ElementFormControlInput") {
+        } else if (elementType == "class Rml::ElementFormControlInput") {
             return ElementFormControlInput.Create(elementPtr);
-        } else if (elementType == "ElementFormControlSelect") {
+        } else if (elementType == "class Rml::ElementFormControlSelect") {
             return ElementFormControlSelect.Create(elementPtr);
-        } else if (elementType == "ElementFormControlTextArea") {
+        } else if (elementType == "class Rml::ElementFormControlTextArea") {
             return ElementFormControlTextArea.Create(elementPtr);
-        } else if (elementType == "ElementProgress") {
+        } else if (elementType == "class Rml::ElementProgress") {
             return ElementProgress.Create(elementPtr);
-        } else if (elementType == "ElementTabSet") {
+        } else if (elementType == "class Rml::ElementTabSet") {
             return ElementTabSet.Create(elementPtr);
-        } else if (elementType == "ElementText") {
+        } else if (elementType == "class Rml::ElementText") {
             return ElementText.Create(elementPtr);
-        } else if (elementType == "Element") {
+        } else if (elementType == "class Rml::Element") {
             return ElementGeneric.Create(elementPtr);
         }
 

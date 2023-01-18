@@ -67,14 +67,14 @@ public abstract class Element<T> : RmlBase<T>, Element
 {
     #region Properties
 
-    public string TagName => Marshal.PtrToStringAuto(Native.Element.GetTagName(NativePtr));
+    public string TagName => Marshal.PtrToStringAnsi(Native.Element.GetTagName(NativePtr));
 
     /// <summary>
     /// Gets the document this element belongs to.
     /// </summary>
     public ElementDocument OwnerDocument {
         get {
-            var elementType = Marshal.PtrToStringAuto(
+            var elementType = Marshal.PtrToStringAnsi(
                 Native.Element.GetOwnerDocument(NativePtr, out var elementPtr)
             );
 
@@ -121,12 +121,7 @@ public abstract class Element<T> : RmlBase<T>, Element
     public Element? GetElementById(string id)
     {
         var nativeElementType = Native.Element.GetElementById(NativePtr, id, out var elementPtr);
-
-        if (null == nativeElementType) {
-            return null;
-        }
-
-        var elementType = Marshal.PtrToStringAuto(nativeElementType);
+        var elementType = Marshal.PtrToStringAnsi(nativeElementType);
 
         if (null == elementType) {
             return null;

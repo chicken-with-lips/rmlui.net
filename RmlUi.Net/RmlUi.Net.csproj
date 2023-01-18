@@ -4,8 +4,76 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>ChickenWithLips.RmlUi</RootNamespace>
+        <RootNamespace>ChickenWithLips.RmlUi</RootNamespace>    
         <AssemblyName>ChickenWithLips.RmlUi</AssemblyName>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug' AND '$(OS)' == 'Unix'">
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\RmlUi.Native.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>RmlUi.Native.so</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug' AND '$(OS)' == 'Windows_NT'">
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\RmlUi.Native.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>RmlUi.Native.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\brotlicommon.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>brotlicommon.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\brotlidec.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>brotlidec.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\bz2d.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>bz2d.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\freetyped.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>freetyped.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\libpng16d.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libpng16d.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\RmlCore.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>RmlCore.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\RmlDebugger.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>RmlDebugger.dll</TargetPath>
+        </ContentWithTargetPath>
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Debug\RmlDebugger.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>zlibd1.dll</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Release' AND '$(OS)' == 'Unix'">
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Release\RmlUi.Native.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>RmlUi.Native.so</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Release' AND '$(OS)' == 'Windows_NT'">
+        <ContentWithTargetPath Include="..\RmlUi.Native\bin\Release\RmlUi.Native.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>RmlUi.Native.dll</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+    
 </Project>

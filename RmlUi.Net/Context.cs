@@ -10,7 +10,7 @@ public class Context : RmlBase<Context>
     /// <summary>
     /// Returns the name of the context.
     /// </summary>
-    public string Name => Marshal.PtrToStringAuto(Native.Context.GetName(NativePtr));
+    public string Name => Marshal.PtrToStringAnsi(Native.Context.GetName(NativePtr));
 
     /// <summary>
     /// Returns a hint on whether the mouse is currently interacting with any elements in this context.
@@ -115,6 +115,13 @@ public class Context : RmlBase<Context>
     internal static Context? Create(string name, Vector2i dimensions, RenderInterface? renderInterface = null)
     {
         return GetOrCreateCache(Native.Context.Create(name, dimensions, renderInterface?.NativePtr ?? IntPtr.Zero), ptr => new Context(ptr));
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        Native.Context.Delete(NativePtr);
     }
 
     #endregion
